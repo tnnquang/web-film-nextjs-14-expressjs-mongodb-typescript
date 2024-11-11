@@ -1,0 +1,46 @@
+[
+  {
+    "hostname": "res.cloudinary.com"
+  },
+  {
+    "hostname": "localhost"
+  },
+  {
+    "hostname": "chaolua3.live"
+  },
+  {
+    "hostname": "scontribute.tuoitre.vn",
+    "protocol": "https"
+  },
+  {
+    "hostname": "znews-photo.zingcdn.me",
+    "protocol": "https"
+  },
+  {
+    "hostname": "picsum.photos",
+    "protocol": "https"
+  },
+  {
+    "hostname": "i.pinimg.com",
+    "protocol": "https"
+  },
+  {
+    "hostname": "graphicsfamily.com",
+    "protocol": "https"
+  },
+  {
+    "hostname": "api.cayphim.live"
+  },
+  {
+    "hostname": "img.phimapi.com"
+  },
+  {
+    "hostname": "phim.nguonc.com"
+  },
+  {
+    "hostname": "img.ophim.live"
+  },
+  {
+    "hostname": "image-eu-na-ctnytbefjq.4shares.live"
+  }
+]

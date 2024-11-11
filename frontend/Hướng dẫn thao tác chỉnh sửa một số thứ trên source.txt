@@ -1,0 +1,54 @@
+Tất cả các thay đổi sau đều ở source frontend
+1. Đổi favicon: Lưu favicon ở thư mục public rồi khai báo nó vào biến "icon" trong file src/configs/metadata_config.ts với dạng "/tên file". ví dụ: "/icon.png"
+2. Thay đổi màu nền body
+ file: src/app/global.css
+Dòng thứ 13
+3. Đổi màu nền header: 
+file: src/tailwind.config.ts
+Tìm đến: bg-header và tiến hành đổi màu
+Hiện tại màn hình từ 768px trở lên mới có màu nền header, nếu muốn đổi cho toàn bộ màn hình đều có màu header thì đổi như sau:
+file: src/layout/header
+Tìm đến: md:bg-header đổi thành bg-header
+4. Đổi các metadata của các trang:
+Đổi trong file src/configs/metadata-config.ts
+
+Trang phim mời ứng với biến phimmoicapnhat
+Trang phim bộ ứng với biến phimbo
+Các trang khác tương tự
+
+Biến titleShowed là để hiển thị tiêu đề trang web thay vì là logo, hiện tại đang là false tức là hiển thị logo
+
+5. Thêm quảng cáo vào trang web
+
+a. Dạng script:
+file: src/app/layout.tsx
+Thêm vào bên trong thẻ đóng của body hoặc head tuỳ vào yêu cầu
+
+Có 2 dạng script phổ biến là dạng html và dạng script thuần.
+5.1 Dạng script thuần:
+Ví dụ ta có: <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxxx"
+     crossorigin="anonymous"></script>
+thì trong file phải ghi là:
+<Script id="Đặt tên id riêng biệt bất kỳ" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxxx"
+     crossOrigin="anonymous"></Script>
+
+Lưu ý: 
+- prop crossorigin phải được viết hoa kí tự đầu của từ thứ 2 trở đi. crossorigin => crossOrigin
+- Bắt buộc phải có id và id luôn là unique nếu gắn nhiều Script (script thuần hay script html đều phải có và nó luôn duy nhất, ko trùng nhau)
+
+5.2 dạng script html: có logic phức tạp hoặc có body bên trong.
+Ví dụ: 
+<script type="text/javascript">
+   var ad="<a href='http://www.adobe.com' target='_blank'><img src='http://www.adobe.go/ads/ad.jpg' width='728' height='90' border='0' alt=''></a>"
+   document.write(ad);
+</script>
+Dạng này thì ta làm như sau:
+<Script id="id riêng biệt" dangerouslySetInnerHTML={{__html:`Nội dung script`}}></Script
+Từ đó ta suy ra ví dụ trên sẽ trở thành:
+
+<Script id="id riêng biệt" dangerouslySetInnerHTML={{__html:`<script type="text/javascript">
+   var ad="<a href='http://www.adobe.com' target='_blank'><img src='http://www.adobe.go/ads/ad.jpg' width='728' height='90' border='0' alt=''></a>"
+   document.write(ad);
+</script>`}}></Script
+
+

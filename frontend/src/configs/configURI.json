@@ -1,0 +1,19 @@
+{
+  "api": {
+    "production": "https://api.bongngo.net",
+    "devlopment": "https://api.bongngo.net"
+  },
+  "frontend": {
+    "production": "https://bongngo.net",
+    "devlopment": "http://localhost:3200"
+  },
+  "image": {
+    "production": "https://api.bongngo.net",
+    "devlopment": "https://api.bongngo.net"
+  },
+  "ads": {
+    "production": "https://api.bongngo.net/ads/get-all",
+    "devlopment": "http://localhost:35000/ads/get-all"
+  },
+  "baseUrlNoProtocol": "cayphim.live"
+}

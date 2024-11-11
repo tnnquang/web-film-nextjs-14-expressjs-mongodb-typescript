@@ -1,0 +1,18 @@
+Import json file vào MongoDB
+
+category:  mongoimport --db hayhayphim --collection filmcategories --file ophimkkphim.filmcategories.json --jsonArray --authenticationDatabase --username <database username> --password <database password>
+
+films: mongoimport --db hayhayphim --collection films --file ophimkkphim.films.json --jsonArray --authenticationDatabase --username <database username> --password <database password>
+
+qualities: mongoimport --db hayhayphim --collection qualities --file ophimkkphim.qualities.json --jsonArray --authenticationDatabase --username <database username> --password <database password>
+
+languages: mongoimport --db hayhayphim --collection languages --file ophimkkphim.languages.json --jsonArray --authenticationDatabase --username <database username> --password <database password>
+
+Ở phần --file <path file> thì ghi đúng path đến cái file json cần import vô DB nha anh
+
+phần: --authenticationDatabase --username <database username> --password <database password>
+ nếu DB không yêu cầu xác thực thì không cần viết cái này
+
+Hình ảnh thumbnail:
+Giải nén file thumbnail vào thư mục chứa chứa code backend/static/assets
+Ví dụ: backend/static/assets
