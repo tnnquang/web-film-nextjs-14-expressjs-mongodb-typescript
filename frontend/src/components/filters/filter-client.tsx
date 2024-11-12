@@ -3,10 +3,8 @@
 import React from "react";
 import { Button, Col, Form, Input, Row } from "antd";
 
-import OneSelectItem from "./SelectComponents/Select";
+import OneSelectItem from "../SelectComponents/Select";
 import { ListData } from "@/configs/types";
-
-
 
 function FiltersComponent({
   filters,

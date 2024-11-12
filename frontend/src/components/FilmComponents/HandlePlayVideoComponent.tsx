@@ -64,11 +64,12 @@ export default function HandlePlayVideoComponent({
   adsInPlayer?: any;
   slug: string[];
 }) {
+  const router = useRouter();
+  const pathName = usePathname();
+
   const [currentEp, setCurrentEp] = useState<any>(null);
   const [itemsTab, setItemsTab] = useState<any[]>([]);
   const [skipAds, setSkipAds] = useState(false);
-  const router = useRouter();
-  const pathName = usePathname();
 
   const epSlug = pathName.split("/").pop();
 
@@ -202,7 +203,7 @@ export default function HandlePlayVideoComponent({
     // Kiểm tra điều kiện hiển thị video ads
     if (!skipAds && !isEmpty(adsInPlayer)) {
       return (
-        <div className="h-[320px] w-full sm:h-[45vw] max-h-[500px]">
+        <div className="h-[320px] max-h-[500px] w-full sm:h-[45vw]">
           <AdsPlayerComponent
             adsContent={adsInPlayer?.ads_content[1]?.content}
             setSkipAds={setSkipAds}
@@ -238,7 +239,7 @@ export default function HandlePlayVideoComponent({
     // Kiểm tra xem trailer_url có hợp lệ hay không
     if (item.trailer_url) {
       return (
-        <div className="h-[320px] w-full sm:h-[45vw] max-h-[500px]">
+        <div className="h-[320px] max-h-[500px] w-full sm:h-[45vw]">
           <ReactPlayer
             url={item.trailer_url}
             width="100%"

@@ -4,7 +4,7 @@ import { isEmpty } from "lodash";
 import { PaginationProps, Pagination } from "antd";
 import React, { Suspense, useEffect, useMemo, useState } from "react";
 
-import FiltersComponent from "../Filters";
+import FiltersComponent from "../filters/filter-client";
 import { ListData } from "@/configs/types";
 import { scrollToTop } from "@/common/utils";
 import axiosInstance from "@/common/axiosInstance";
@@ -97,7 +97,6 @@ export default function FilmsByListComponent({
   };
 
   const BodyContent = useMemo(() => {
-   
     return (
       <>
         <div className="data-list-film flex flex-wrap items-start gap-2">

@@ -98,6 +98,8 @@ async function startServer() {
     });
   });
 
+  updateIncorrectSlugs();
+
   const countries = await country.find();
   for (const country of countries) {
     country.slug = convertAlphabetToSlug(country.name);

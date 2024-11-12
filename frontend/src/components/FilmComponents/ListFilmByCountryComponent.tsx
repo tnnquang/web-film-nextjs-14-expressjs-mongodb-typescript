@@ -5,7 +5,7 @@ import { Input } from "antd";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import React, { Suspense, useEffect, useState } from "react";
 
-import FiltersComponent from "../Filters";
+import FiltersComponent from "../filters/filter-client";
 import { ListData } from "@/configs/types";
 import { scrollToTop } from "@/common/utils";
 import axiosInstance from "@/common/axiosInstance";

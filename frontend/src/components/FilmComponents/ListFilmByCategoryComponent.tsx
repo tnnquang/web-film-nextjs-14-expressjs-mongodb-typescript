@@ -7,7 +7,7 @@ import React, { Fragment, Suspense, useEffect, useState } from "react";
 
 import { scrollToTop } from "@/common/utils";
 import axiosInstance from "@/common/axiosInstance";
-import FiltersComponent from "@/components/Filters";
+import FiltersComponent from "@/components/filters/filter-client";
 import { GET_FILM_BY_FILTER } from "@/common/constant";
 import ListFilmItemComponent, { FilmSkeletonComponent } from "./ListFilmItem";
 

@@ -63,7 +63,7 @@ export default async function ListLayout({ children, params }: Props) {
             <p className="my-2 w-full text-xl font-bold">
               {slug === "tv-shows"
                 ? "Danh sách các "
-                : "Danh phim theo thể loại "}
+                : "Danh sách phim theo thể loại "}
               <span className="name-of rounded-xl bg-blueSecondary px-2 py-1 shadow-lg">
                 {data.name}
               </span>

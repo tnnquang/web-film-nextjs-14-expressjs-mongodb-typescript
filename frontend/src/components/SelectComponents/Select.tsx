@@ -17,7 +17,9 @@ export default function OneSelectItem({
   popupClassName,
   handleChange,
   selected,
-  defaultValue
+  defaultValue,
+  allowClear = true,
+  disabled = false,
 }: {
   options: OptionType[];
   placeholder?: string | React.ReactNode;
@@ -27,7 +29,9 @@ export default function OneSelectItem({
   popupClassName?: string;
   handleChange: any;
   selected?: any;
-  defaultValue?: any
+  defaultValue?: any;
+  allowClear?: boolean;
+  disabled?: boolean;
 }) {
   return (
     <Select
@@ -41,7 +45,9 @@ export default function OneSelectItem({
       value={selected}
       defaultValue={defaultValue}
       loading={isEmpty(options)}
-      allowClear
+      allowClear={allowClear}
+      disabled={isEmpty(options) || options.length === 0 || disabled}
+      onClear={() => handleChange(undefined)}
     />
   );
 }

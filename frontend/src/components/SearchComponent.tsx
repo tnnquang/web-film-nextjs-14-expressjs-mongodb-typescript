@@ -3,12 +3,12 @@
 import { Input } from "antd";
 import { isEmpty } from "lodash";
 import { useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 import { scrollToTop } from "@/common/utils";
 import axiosInstance from "@/common/axiosInstance";
-import FiltersComponent from "@/components/Filters";
+import FiltersComponent from "@/components/filters/filter-client";
 import { GET_FILM_BY_FILTER } from "@/common/constant";
 import Spinner from "@/components/LoadingComponents/Spinner";
 import ListFilmItemComponent, {
@@ -89,7 +89,7 @@ export default function SearchComponent({
     getDataFilm({ keyword: query });
   }, [query]);
 
-  const renderBodyContent = () => {
+  const renderBodyContent = useMemo(() => {
     if (!dataFilm?.result) return null;
 
     return (
@@ -140,7 +140,7 @@ export default function SearchComponent({
         )}
       </Suspense>
     );
-  };
+  }, [dataFilm, fetchingData, currentPage, totalPages]);
 
   return (
     <section className="list-film-container w-full">
@@ -153,7 +153,7 @@ export default function SearchComponent({
         isSearching={true}
         listData={listDataFilters}
       />
-      {renderBodyContent()}
+      {renderBodyContent}
     </section>
   );
 }
