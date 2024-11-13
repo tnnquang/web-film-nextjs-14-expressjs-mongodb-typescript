@@ -46,8 +46,8 @@ export default function ReturnImage({ item }: { item: IFilm }) {
       fill
       alt={item.title ?? ""}
       loading="lazy"
-      placeholder="blur"
-      blurDataURL={"/blur_img.webp"}
+      // placeholder="blur"
+      // blurDataURL={"/blur_img.webp"}
       className="object-cover transition-all duration-300 hover:scale-105"
       sizes="100vw"
       quality={60}
@@ -95,8 +95,8 @@ export function ReturnImageCommingSoon({ item }: { item: IFilm }) {
       sizes="100vw"
       alt={item.title as string}
       className="object-cover"
-      placeholder="blur"
-      blurDataURL={"/blur_img.webp"}
+      // placeholder="blur"
+      // blurDataURL={"/blur_img.webp"}
       loading="lazy"
       quality={50}
     />
@@ -105,7 +105,9 @@ export function ReturnImageCommingSoon({ item }: { item: IFilm }) {
 
 export function ReturnImageHotFilm({ item }: { item: IFilm }) {
   const [imgSrc, setImgSrc] = useState(
-    isEmpty(item.thumbnail) ? "/blur_img.webp" : `${BASE_URL_API}/${item.thumbnail}`
+    isEmpty(item.thumbnail)
+      ? "/blur_img.webp"
+      : `${BASE_URL_API}/${item.thumbnail}`
   );
   useEffect(() => {
     if (imgSrc === "/blur_img.webp") return;
@@ -131,8 +133,8 @@ export function ReturnImageHotFilm({ item }: { item: IFilm }) {
       sizes="100vw"
       loading="lazy"
       alt={item.title as string}
-      placeholder="blur"
-      blurDataURL={"/blur_img.webp"}
+      // placeholder="blur"
+      // blurDataURL={"/blur_img.webp"}
     />
   );
 }

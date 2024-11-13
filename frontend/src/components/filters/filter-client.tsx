@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { Button, Col, Form, Input, Row } from "antd";
 
 import OneSelectItem from "../SelectComponents/Select";
 import { ListData } from "@/configs/types";
+import { useRouter } from "next/navigation";
 
 function FiltersComponent({
   filters,
@@ -28,12 +29,14 @@ function FiltersComponent({
   listData: ListData;
 }) {
   const [form] = Form.useForm();
+  const router = useRouter();
+  const prevFilter = useRef<any>(filters);
 
   const handleCategoryChange = (value: any) => {
     const newData = { ...filters };
     newData.category = value;
     filters = newData;
-    // setFilters(newData);
+    setFilters(newData);
   };
 
   const handleCountryChange = (value: any) => {
@@ -102,7 +105,7 @@ function FiltersComponent({
                   width: "100%",
                 }}
                 className="custom-select-selector"
-                popupClassName="!bg-[#2b1867] custom-popup-option"
+                popupClassName="!bg-[#183967] custom-popup-option"
                 defaultValue={path === "the-loai" ? initValue : undefined}
               />
             </Form.Item>
@@ -118,7 +121,7 @@ function FiltersComponent({
                   width: "100%",
                 }}
                 className="custom-select-selector"
-                popupClassName="!bg-[#2b1867] custom-popup-option"
+                popupClassName="!bg-[#183967] custom-popup-option"
                 defaultValue={path === "quoc-gia" ? initValue : undefined}
               />
             </Form.Item>
@@ -134,20 +137,34 @@ function FiltersComponent({
                   width: "100%",
                 }}
                 className="custom-select-selector"
-                popupClassName="!bg-[#2b1867] custom-popup-option"
+                popupClassName="!bg-[#183967] custom-popup-option"
               />
             </Form.Item>
           </Col> */}
           <Col xs={24} md={8} xl={6}>
             <Form.Item className="w-full">
               <Button
-                className="w-full !bg-blueSecondary !text-white hover:!border-[#5142FC]"
+                className="w-full !bg-blueSecondary !text-white hover:!border-[#4660e6]"
                 type="primary"
                 htmlType="submit"
                 loading={fetching}
                 onClick={() => {
+                  if (
+                    prevFilter.current &&
+                    JSON.stringify(prevFilter.current) ===
+                      JSON.stringify(filters)
+                  )
+                    return;
+                  if (filters.keyword != "" && filters.keyword !== keyword) {
+                    router.push(`?query=${filters.keyword}`);
+                  }
                   onSubmit(filters);
+                  prevFilter.current = filters;
                 }}
+                disabled={
+                  JSON.stringify(prevFilter.current) ===
+                    JSON.stringify(filters) || fetching
+                }
               >
                 Lọc phim
               </Button>

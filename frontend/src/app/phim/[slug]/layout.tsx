@@ -83,7 +83,7 @@ export default async function FilmLayout({ params, children }: Props) {
       return (
         <Suspense
           fallback={
-            <div className="shadow-custom-1 flex h-[576px] w-full max-w-full animate-pulse items-center justify-center rounded-lg bg-[#5142FC] bg-opacity-25">
+            <div className="shadow-custom-1 flex h-[576px] w-full max-w-full animate-pulse items-center justify-center rounded-lg bg-[#4660e6] bg-opacity-25">
               <Spinner />
             </div>
           }

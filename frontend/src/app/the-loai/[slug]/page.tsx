@@ -1,5 +1,5 @@
 import { BASE_URL_API, GET_FILM_BY_FILTER } from "@/common/constant";
-import { getListCategory, getListCountry } from "@/common/utils";
+import { getListCategory, getListCountry, retry } from "@/common/utils";
 import ListFilmByCategoryComponent from "@/components/FilmComponents/ListFilmByCategoryComponent";
 import ListFilmItemComponent, {
   FilmSkeletonComponent,
@@ -81,8 +81,12 @@ export default async function ListFilmByCategoryPage({
   }
 
   const [categories, countries] = await Promise.all([
-    getListCategory(),
-    getListCountry(),
+    retry(getListCategory, "getListCategory()"),
+    retry(getListCountry, "getListCountry()"),
+    // retry(
+    //   getDataFilm(undefined, currentPage),
+    //   "getDataFilm(undefined, currentPage)"
+    // ),
     getDataFilm(undefined, currentPage),
   ]);
 
@@ -109,13 +113,13 @@ export default async function ListFilmByCategoryPage({
                       }
                 }
                 prefetch
-                className={`flex h-10 w-10 items-center justify-center rounded-md bg-[#5142FC] text-center text-white ${currentPage === 1 ? "cursor-not-allowed bg-opacity-50" : "hover:opacity-80"}`}
+                className={`flex h-10 w-10 items-center justify-center rounded-md bg-[#4660e6] text-center text-white ${currentPage === 1 ? "cursor-not-allowed bg-opacity-50" : "hover:opacity-80"}`}
                 type="button"
               >
                 <BsArrowLeft size={20} />
               </Link>
               <Input
-                className="!disabled:bg-[#5142FC] !disabled:bg-opacity-90 h-10 !w-16 !bg-[#5142FC] text-center !text-white disabled:text-white"
+                className="!disabled:bg-[#4660e6] !disabled:bg-opacity-90 h-10 !w-16 !bg-[#4660e6] text-center !text-white disabled:text-white"
                 value={`${currentPage}/${totalPages}`}
                 disabled
               />
@@ -129,7 +133,7 @@ export default async function ListFilmByCategoryPage({
                       }
                 }
                 prefetch
-                className={`flex h-10 w-10 items-center justify-center rounded-md bg-[#5142FC] text-center text-white disabled:bg-opacity-50 ${currentPage === totalPages ? "cursor-not-allowed bg-opacity-50" : "hover:opacity-80"}`}
+                className={`flex h-10 w-10 items-center justify-center rounded-md bg-[#4660e6] text-center text-white disabled:bg-opacity-50 ${currentPage === totalPages ? "cursor-not-allowed bg-opacity-50" : "hover:opacity-80"}`}
               >
                 <BsArrowRight size={20} />
               </Link>

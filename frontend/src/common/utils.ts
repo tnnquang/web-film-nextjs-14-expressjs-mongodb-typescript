@@ -229,21 +229,30 @@ export function removeDuplitcateFromArray_v4(arr: any[]) {
 export async function getListCategory(): Promise<any[]> {
   try {
     let dataList: any[] = [];
-    const { data } = await axios.get("/film/category-client");
-    if (!isEmpty(data.list)) {
-      const lst = removeCatgoryDuplicates(data.list)?.map((e: any) => ({
-        label: e.name,
-        value: e.slug,
-        isDeleted: e.isDeleted,
-        slug: e.slug,
-      }));
-      dataList = lst;
+    const ress = await fetch(`${BASE_URL_API}/film/category-client`, {
+      next: { revalidate: 7 * 24 * 60 * 60, tags: ["list-category"] },
+    });
+    if (ress.ok) {
+      const data = await ress.json();
+      if (!isEmpty(data.list)) {
+        const lst = removeCatgoryDuplicates(data.list)?.map((e: any) => ({
+          label: e.name,
+          value: e.slug,
+          isDeleted: e.isDeleted,
+          slug: e.slug,
+        }));
+        dataList = lst;
+      } else {
+        dataList = [];
+      }
     } else {
+      console.log("Error get list category: ", ress.statusText);
       dataList = [];
     }
+
     return dataList;
   } catch (error: any) {
-    console.log("Error get list category: ", error);
+    console.log("Catch Error get list category: ", error);
     return [];
   }
 }
@@ -281,21 +290,29 @@ export async function createCategory(categories: string[]) {
 export async function getListCountry() {
   try {
     let dataList: any[] = [];
-    const { data } = await axios.get("/film/country");
-    if (!isEmpty(data.listCountry)) {
-      const lst = removeCatgoryDuplicates(data.listCountry).map((e: any) => ({
-        label: e.name,
-        value: e.slug,
-        isDeleted: e.isDeleted,
-        slug: e.slug,
-      }));
-      dataList = lst;
+    const res = await fetch(`${BASE_URL_API}/film/country`, {
+      next: { revalidate: 7 * 24 * 60 * 60, tags: ["list-country"] },
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (!isEmpty(data.listCountry)) {
+        const lst = removeCatgoryDuplicates(data.listCountry).map((e: any) => ({
+          label: e.name,
+          value: e.slug,
+          isDeleted: e.isDeleted,
+          slug: e.slug,
+        }));
+        dataList = lst;
+      } else {
+        dataList = [];
+      }
     } else {
+      console.log("Error get list country: ", res.statusText);
       dataList = [];
     }
     return dataList;
   } catch (error: any) {
-    console.log("Error get list country: ", error);
+    console.log("Catch Error get list country: ", error);
     return [];
   }
 }
@@ -659,7 +676,39 @@ export function generateMetadataForXemPhim(
 }
 
 export async function fetchAds() {
-  // return null
+  // return null;
 
-  return await fetch(`${BASE_URL_FRONTEND}/api/ads`).then((e) => e.json());
+  const ress = await fetch(`${BASE_URL_FRONTEND}/api/ads`, {
+    cache: "no-cache",
+  });
+  if (ress.ok) {
+    return await ress.json();
+  }
+  return null;
+}
+
+export async function retry(
+  fn: any,
+  fname?: string,
+  retries = 3,
+  delay = 1000
+) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      return await fn();
+    } catch (error) {
+      if (i < retries - 1) {
+        console.log(`Retrying function ${fname}... (${i + 1}/${retries})`);
+        await new Promise((resolve) => setTimeout(resolve, delay));
+      } else {
+        console.log("Catch at retry", error);
+        throw error;
+      }
+    }
+  }
+}
+
+export async function withRetryListFunction(listFuncion: any[]) {
+  const pormises = listFuncion.map((fn) => retry(fn));
+  return await Promise.all(pormises);
 }

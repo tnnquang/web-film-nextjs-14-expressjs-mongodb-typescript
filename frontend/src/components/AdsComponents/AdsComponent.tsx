@@ -39,7 +39,7 @@ export function HeaderAdsComponent({
               <Link
                 prefetch={false}
                 key={index.toString() + "pp"}
-                href={item.href}
+                href={item.href || ""}
                 target="_blank"
                 //onClick={() => window.open(item.href, "_blank")}
                 className={`relative inline-block h-[90px] w-full border border-gray-400 bg-pink-700 text-center align-middle`}
@@ -54,13 +54,13 @@ export function HeaderAdsComponent({
               <Link
                 prefetch={false}
                 key={index.toString() + "ppq"}
-                href={item.href}
+                href={item.href || ""}
                 target="_blank"
                 className={`relative inline-block h-[90px] w-full border border-gray-400 bg-pink-700 text-center align-middle`}
               >
                 <img
                   src={item.content}
-                  alt={item.href}
+                  alt={item.href || ""}
                   className="absolute !block h-full w-full object-fill"
                 />
               </Link>
@@ -70,13 +70,13 @@ export function HeaderAdsComponent({
               <Link
                 prefetch={false}
                 key={index.toString() + "pp"}
-                href={item.href}
+                href={item.href || ""}
                 target="_blank"
                 className={`relative inline-block h-[90px] w-full`}
               >
                 <img
                   src={item.content}
-                  alt={item.href}
+                  alt={item.href || ""}
                   className="absolute !block h-full w-full object-fill"
                 />
               </Link>
@@ -94,7 +94,7 @@ export function Row1AdsComponent({
   dataAds: any[] | null | undefined;
 }) {
   return dataAds && dataAds.length > 0 ? (
-    <section className="row1-bn any-data-wrapper mx-auto my-3 w-full relative z-[1]">
+    <section className="row1-bn any-data-wrapper relative z-[1] mx-auto my-3 w-full">
       {dataAds.map((item: any, index) =>
         item.mode === "dual" ? (
           <div
@@ -104,7 +104,7 @@ export function Row1AdsComponent({
             <Link
               prefetch={false}
               key={index.toString() + "pp"}
-              href={item.href}
+              href={item.href || ""}
               target="_blank"
               //onClick={() => window.open(item.href, "_blank")}
               className={`relative inline-block w-full ${
@@ -121,7 +121,7 @@ export function Row1AdsComponent({
             <Link
               prefetch={false}
               key={index.toString() + "pp1"}
-              href={item.href}
+              href={item.href || ""}
               target="_blank"
               className={`relative inline-block w-full ${
                 index >= 1 ? "h-[75px]" : "h-[60px]"
@@ -140,7 +140,7 @@ export function Row1AdsComponent({
             <Link
               prefetch={false}
               key={index.toString() + "pp"}
-              href={item.href}
+              href={item.href || ""}
               target="_blank"
               className={`relative inline-block w-full ${
                 index >= 1 ? "h-[75px]" : "h-[60px]"
@@ -148,7 +148,7 @@ export function Row1AdsComponent({
             >
               <img
                 src={item.content}
-                alt={item.href}
+                alt={item.href || ""}
                 className="absolute !block h-full w-full object-fill"
               />
             </Link>
@@ -175,7 +175,7 @@ export function Row2AdsComponent({
             <Link
               prefetch={false}
               key={index.toString() + "pp"}
-              href={item.href}
+              href={item.href || ""}
               target="_blank"
               //onClick={() => window.open(item.href, "_blank")}
               className={`relative inline-block h-[60px] w-full border border-gray-400 bg-pink-700 text-center align-middle`}
@@ -190,7 +190,7 @@ export function Row2AdsComponent({
             <Link
               prefetch={false}
               key={index.toString() + "pp1"}
-              href={item.href}
+              href={item.href || ""}
               target="_blank"
               className={`relative inline-block h-[60px] w-full border border-gray-400 bg-pink-700 text-center align-middle`}
             >
@@ -207,13 +207,13 @@ export function Row2AdsComponent({
             <Link
               prefetch={false}
               key={index.toString() + "pp"}
-              href={item.href}
+              href={item.href || ""}
               target="_blank"
               className={`relative inline-block h-[60px] w-full`}
             >
               <img
                 src={item.content}
-                alt={item.href}
+                alt={item.href || ""}
                 className="absolute !block h-full w-full object-fill"
               />
             </Link>
@@ -240,7 +240,7 @@ export function Row3AdsComponent({
             <Link
               prefetch={false}
               key={index.toString() + "pp"}
-              href={item.href}
+              href={item.href || ""}
               target="_blank"
               //onClick={() => window.open(item.href, "_blank")}
               className={`relative inline-block h-[60px] w-full border border-gray-400 bg-pink-700 text-center align-middle`}
@@ -255,7 +255,7 @@ export function Row3AdsComponent({
             <Link
               prefetch={false}
               key={index.toString() + "pp1"}
-              href={item.href}
+              href={item.href || ""}
               target="_blank"
               className={`relative inline-block h-[60px] w-full border border-gray-400 bg-pink-700 text-center align-middle`}
             >
@@ -272,13 +272,13 @@ export function Row3AdsComponent({
             <Link
               prefetch={false}
               key={index.toString() + "pp"}
-              href={item.href}
+              href={item.href || ""}
               target="_blank"
               className={`relative inline-block h-[60px] w-full`}
             >
               <img
                 src={item.content}
-                alt={item.href}
+                alt={item.href || ""}
                 className="absolute !block h-full w-full object-fill"
               />
             </Link>
@@ -294,7 +294,6 @@ export function FooterAdsComponent({
 }: {
   dataAds: any[] | null | undefined;
 }) {
-
   return dataAds && dataAds.length > 0 ? (
     <section className="fixed bottom-0 left-1/2 z-50 mx-auto w-full max-w-[1800px] -translate-x-1/2 2lg:px-4">
       <div className="any-data-wrapper mx-auto w-full pl-3 pr-[10px] 2lg:px-0 2lg:pr-0">
@@ -307,7 +306,7 @@ export function FooterAdsComponent({
               <Link
                 prefetch={false}
                 key={index.toString() + "pp"}
-                href={item.href}
+                href={item.href || ""}
                 target="_blank"
                 //onClick={() => window.open(item.href, "_blank")}
                 className={`relative inline-block w-full ${
@@ -324,7 +323,7 @@ export function FooterAdsComponent({
               <Link
                 prefetch={false}
                 key={index.toString() + "pp4"}
-                href={item.href}
+                href={item.href || ""}
                 target="_blank"
                 className={`relative inline-block w-full ${
                   index >= 1 ? "h-[80px]" : "h-[70px]"
@@ -332,18 +331,21 @@ export function FooterAdsComponent({
               >
                 <img
                   src={item.content}
-                  alt={item.href}
+                  alt={item.href || ""}
                   className="absolute !block h-full w-full object-fill"
                   // sizes="100vw"
                 />
               </Link>
             </div>
           ) : (
-            <div className="relative w-full flex items-center justify-center" key={index.toString() + "si"}>
+            <div
+              className="relative flex w-full items-center justify-center"
+              key={index.toString() + "si"}
+            >
               <Link
                 prefetch={false}
                 key={index.toString() + "pp"}
-                href={item.href}
+                href={item.href || ""}
                 target="_blank"
                 className={`relative inline-block w-full  ${
                   index >= 1 ? "h-[80px]" : "h-[70px]"
@@ -351,7 +353,7 @@ export function FooterAdsComponent({
               >
                 <img
                   src={item.content}
-                  alt={item.href}
+                  alt={item.href || ""}
                   className="absolute !block h-full w-full object-fill"
                 />
               </Link>
@@ -370,13 +372,14 @@ export function PopupAdsComponent({
 }) {
   const [show, setShow] = useState(true);
 
+  // console.log("Ads popup", dataAds);
   return dataAds && dataAds?.length > 0 ? (
     show ? (
       <div
         onClick={() => {
           setShow(false);
         }}
-        className="bg-slate-300 backdrop-blur-[2px] fixed left-0 top-0 z-[300] flex h-full w-full items-center justify-center bg-black bg-opacity-25"
+        className="bg-slate-300 fixed left-0 top-0 z-[300] flex h-full w-full items-center justify-center bg-black bg-opacity-25 backdrop-blur-[2px]"
       >
         <div className="content-wrapper relative h-[300px] w-[95%] max-w-[600px] md:h-[400px]">
           {/* <button
@@ -407,17 +410,18 @@ export function LeftSideAdsComponent({
 }: {
   dataAds?: ITEM_ADS | null;
 }) {
-  if (!isEmpty(dataAds)) {
+  // console.log("LeftSideAdsComponent", dataAds);
+  if (!isEmpty(dataAds?.ads_content)) {
     return (
       <div className="ads-side-left fixed hidden pt-20 2lg:block">
         <Link
           prefetch={false}
-          href={dataAds?.ads_content[0]?.href}
+          href={dataAds?.ads_content[0]?.href || ""}
           className="relative block h-[450px] w-[90px]"
           target="_blank"
         >
           <Image
-            src={dataAds?.ads_content[0]?.content}
+            src={dataAds?.ads_content[0]?.content as any}
             alt=""
             fill
             sizes="100vw"
@@ -435,17 +439,17 @@ export function RightSideAdsComponent({
 }: {
   dataAds?: ITEM_ADS | null;
 }) {
-  if (!isEmpty(dataAds)) {
+  if (!isEmpty(dataAds?.ads_content)) {
     return (
       <div className="ads-side-right fixed hidden pt-20 2lg:block">
         <Link
           prefetch={false}
-          href={dataAds?.ads_content[1]?.href}
+          href={dataAds?.ads_content[1]?.href || ""}
           className="relative block h-[450px] w-[90px]"
           target="_blank"
         >
           <Image
-            src={dataAds?.ads_content[1]?.content}
+            src={dataAds?.ads_content[1]?.content as any}
             alt=""
             fill
             sizes="100vw"

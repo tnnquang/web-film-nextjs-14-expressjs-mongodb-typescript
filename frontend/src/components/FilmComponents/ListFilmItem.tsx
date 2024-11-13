@@ -91,8 +91,8 @@ export default function ListFilmItemComponent({
           fill
           alt={e.title ?? ""}
           loading="lazy"
-          placeholder="blur"
-          blurDataURL={"/bg-match-item.png"}
+          // placeholder="blur"
+          // blurDataURL={"/bg-match-item.png"}
           className="object-cover transition-all duration-300 hover:scale-105"
           sizes="100vw"
           quality={40}
@@ -108,7 +108,7 @@ export default function ListFilmItemComponent({
         )} */}
         <RenderQuality f={e} />
         {e.outstanding && (
-          <span className="outstanding-text absolute right-0 top-0 z-10 ml-3 line-clamp-2 w-full max-w-[80px] rounded bg-purple-600 p-1 text-center text-[10px] text-white">
+          <span className="outstanding-text absolute right-0 top-0 z-10 ml-3 line-clamp-2 w-full max-w-[80px] rounded bg-[#a620d5] p-1 text-center text-[10px] text-white">
             {e.outstanding}
           </span>
         )}

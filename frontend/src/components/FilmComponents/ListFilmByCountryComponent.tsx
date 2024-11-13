@@ -106,20 +106,20 @@ export default function ListFilmByCountryComponent({
             <>
               <button
                 onClick={prevPage}
-                className="flex h-10 w-10 items-center justify-center rounded-md bg-[#5142FC] text-center text-white disabled:bg-opacity-50"
+                className="flex h-10 w-10 items-center justify-center rounded-md bg-[#4660e6] text-center text-white disabled:bg-opacity-50"
                 type="button"
                 disabled={currentPage === 1}
               >
                 <BsArrowLeft size={20} />
               </button>
               <Input
-                className="h-10 w-16 bg-[#5142FC] text-center text-white disabled:bg-[#5142FC] disabled:bg-opacity-90 disabled:text-white"
+                className="h-10 w-16 bg-[#4660e6] text-center text-white disabled:bg-[#4660e6] disabled:bg-opacity-90 disabled:text-white"
                 value={`${currentPage}/${totalPages}`}
                 disabled
               />
               <button
                 onClick={nextPage}
-                className="flex h-10 w-10 items-center justify-center rounded-md bg-[#5142FC] text-center text-white disabled:bg-opacity-50"
+                className="flex h-10 w-10 items-center justify-center rounded-md bg-[#4660e6] text-center text-white disabled:bg-opacity-50"
                 disabled={currentPage === totalPages}
               >
                 <BsArrowRight size={20} />

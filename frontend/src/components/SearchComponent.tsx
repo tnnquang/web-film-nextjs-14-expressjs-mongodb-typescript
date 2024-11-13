@@ -90,7 +90,8 @@ export default function SearchComponent({
   }, [query]);
 
   const renderBodyContent = useMemo(() => {
-    if (!dataFilm?.result) return null;
+    if (dataFilm?.result?.length === 0 || dataFilm?.result === undefined)
+      return null;
 
     return (
       <Suspense

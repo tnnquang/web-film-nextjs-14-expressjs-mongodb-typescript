@@ -345,25 +345,25 @@ export default function HandlePlayVideoComponent({
                 <div className="group-btn-share flex items-center gap-2">
                   <FacebookShareButton
                     url={document.URL}
-                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#5142FC] transition-all duration-300 hover:!bg-white hover:!text-[#5142FC]"
+                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#4660e6] transition-all duration-300 hover:!bg-white hover:!text-[#4660e6]"
                   >
                     <FaFacebook size={20} />
                   </FacebookShareButton>
                   <TwitterShareButton
                     url={document.URL}
-                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#5142FC] transition-all duration-300 hover:!bg-white hover:!text-[#5142FC]"
+                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#4660e6] transition-all duration-300 hover:!bg-white hover:!text-[#4660e6]"
                   >
                     <FaTwitter size={20} />
                   </TwitterShareButton>
                   <VKShareButton
                     url={document.URL}
-                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#5142FC] transition-all duration-300 hover:!bg-white hover:!text-[#5142FC]"
+                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#4660e6] transition-all duration-300 hover:!bg-white hover:!text-[#4660e6]"
                   >
                     <FaVk size={20} />
                   </VKShareButton>
                   <OKShareButton
                     url={document.URL}
-                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#5142FC] transition-all duration-300 hover:!bg-white hover:!text-[#5142FC]"
+                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#4660e6] transition-all duration-300 hover:!bg-white hover:!text-[#4660e6]"
                   >
                     <FaOdnoklassniki size={20} />
                   </OKShareButton>

@@ -48,10 +48,10 @@ export default async function TabCategoryFilmComponent({
       <div className="flex w-full items-end gap-4">
         {arr.map((e) => (
           <Link
-            className={`inline-block border-b-2 pb-2 ${
+            className={`inline-block border-b-2 pb-2 text-white ${
               tabSelected.value.toLowerCase() === e.value.toLowerCase()
-                ? "border-b-[#5142FC] text-2xl font-bold uppercase text-[#5142FC] text-opacity-55"
-                : "border-b-[#5142fc7f] font-semibold text-white"
+                ? "border-b-[#4660e6] text-2xl font-bold uppercase"
+                : "border-b-[#4660e67f] font-semibold"
             }`}
             key={e.value + "kk"}
             role="button"

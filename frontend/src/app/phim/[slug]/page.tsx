@@ -159,8 +159,8 @@ export default async function Film({ params }: { params: any }) {
                 src={image}
                 fill
                 alt={item?.title}
-                placeholder="blur"
-                blurDataURL="/blur_img.webp"
+                // placeholder="blur"
+                // blurDataURL="/blur_img.webp"
                 className="rounded-lg object-cover"
                 sizes="100vw"
                 loading="lazy"

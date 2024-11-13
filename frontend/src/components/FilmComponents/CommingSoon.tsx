@@ -6,14 +6,20 @@ import { IoIosStar } from "react-icons/io";
 import { IFilm } from "@/configs/types";
 import Spinner from "../LoadingComponents/Spinner";
 import { returnDefaultImageURL_v2, toStar } from "@/common/utils";
-import { BASE_URL_API, GET_FILM_BY_FILTER, GET_FILM_COMMING_SOON, fetchOrigin } from "@/common/constant";
+import {
+  BASE_URL_API,
+  GET_FILM_BY_FILTER,
+  GET_FILM_COMMING_SOON,
+  fetchOrigin,
+} from "@/common/constant";
 
 export default async function CommingSoonComponent() {
   const res = await fetch(`${BASE_URL_API}${GET_FILM_COMMING_SOON}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      ...fetchOrigin,},
+      ...fetchOrigin,
+    },
 
     next: { revalidate: 900, tags: ["comming-soon"] },
   }).then((e) => e.json());
@@ -29,7 +35,7 @@ export default async function CommingSoonComponent() {
             const imgSrc = returnDefaultImageURL_v2(film.thumbnail);
             return (
               <Link
-                className="relative flex w-full cursor-pointer flex-col items-start gap-2 border-b-[#5142FC] py-2 transition duration-300 hover:text-blueSecondary md:gap-2 2lg:flex-row 2lg:border-b 2lg:first:pt-0"
+                className="relative flex w-full cursor-pointer flex-col items-start gap-2 border-b-[#4660e6] py-2 transition duration-300 hover:text-blueSecondary md:gap-2 2lg:flex-row 2lg:border-b 2lg:first:pt-0"
                 key={`b${film.slug}`}
                 href={`/phim/${film.slug}`}
                 prefetch={false}
@@ -41,14 +47,16 @@ export default async function CommingSoonComponent() {
                     sizes="100vw"
                     alt={film.title as string}
                     className="object-cover"
-                    placeholder="blur"
-                    blurDataURL={"/bg-match-item.png"}
+                    // placeholder="blur"
+                    // blurDataURL={"/bg-match-item.png"}
                     loading="lazy"
                     quality={50}
                   />
                 </span>
                 <div className="info-data">
-                  <p className="title mb-0.5 md:mb-2 text-sm capitalize">{film.title}</p>
+                  <p className="title mb-0.5 text-sm capitalize md:mb-2">
+                    {film.title}
+                  </p>
                   <p className="year text-xs opacity-80">{film.year_release}</p>
                   <p className="rates 2lg: absolute left-1/2 top-2 flex -translate-x-1/2 items-center gap-1 rounded-bl-md rounded-br-md bg-blueSecondary bg-opacity-80 px-3 py-1.5 text-xs text-white 2lg:left-auto 2lg:top-auto 2lg:translate-x-0 2lg:bg-transparent 2lg:p-0">
                     {toStar(film.rate)} <IoIosStar size={16} color="orange" />
@@ -68,7 +76,8 @@ export async function CommingSoonComponent_v2() {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      ...fetchOrigin,},
+      ...fetchOrigin,
+    },
     body: JSON.stringify({
       filters: { quality: "Trailer", category: { $nin: ["Phim 18+"] } },
       limit: 10,
@@ -84,7 +93,7 @@ export async function CommingSoonComponent_v2() {
       ) : dataFilm.length === 0 ? null : ( // <p className="">Không có dữ liệu</p>
         dataFilm.map((film: IFilm) => (
           <Link
-            className="relative flex w-full cursor-pointer flex-col items-start gap-2 border-b-[#5142FC] py-2 transition duration-300 hover:text-blueSecondary md:gap-2 2lg:flex-row 2lg:border-b 2lg:first:pt-0"
+            className="relative flex w-full cursor-pointer flex-col items-start gap-2 border-b-[#4660e6] py-2 transition duration-300 hover:text-blueSecondary md:gap-2 2lg:flex-row 2lg:border-b 2lg:first:pt-0"
             key={`b${film.slug}`}
             href={`/phim/${film.slug}`}
             prefetch={false}

@@ -25,7 +25,7 @@ export default async function ListShowListItemWithAnyCategoryComponent({
     <div className=" list-cartoon-container">
       <div className="flex items-center justify-between gap-2 rounded-lg bg-blueSecondary bg-opacity-30 p-2">
         <Link
-          className="big-title inline-block w-fit border-b-2 border-b-[#5142fc7f] text-base font-semibold text-white sm:text-xl"
+          className="big-title inline-block w-fit border-b-2 border-b-[#4660e67f] text-base font-semibold text-white sm:text-xl"
           prefetch={false}
           href={title ? `/the-loai/${categorySlug}` : "/the-loai/hoat-hinh"}
           target="_blank"

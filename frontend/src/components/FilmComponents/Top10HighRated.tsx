@@ -19,7 +19,7 @@ export default async function Top10HighRatedComponent() {
       ) : (
         dataFilm.result.map((e: IFilm) => (
           <Link
-            className="relative flex w-full cursor-pointer flex-col items-start gap-2 border-b-[#5142FC] py-2 transition duration-300 first:pt-0 hover:text-blueSecondary md:gap-4 2lg:flex-row 2lg:border-b"
+            className="relative flex w-full cursor-pointer flex-col items-start gap-2 border-b-[#4660e6] py-2 transition duration-300 first:pt-0 hover:text-blueSecondary md:gap-4 2lg:flex-row 2lg:border-b"
             key={`b${e.slug}`}
             href={`/phim/${e.slug}`}
             prefetch={false}
@@ -33,8 +33,8 @@ export default async function Top10HighRatedComponent() {
                 sizes="100vw"
                 alt={e.title as string}
                 className="object-cover"
-                placeholder="blur"
-                blurDataURL={"/blur_img.webp"}
+                // placeholder="blur"
+                // blurDataURL={"/blur_img.webp"}
                 loading="lazy"
                 quality={50}
               />

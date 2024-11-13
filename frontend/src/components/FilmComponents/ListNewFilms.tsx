@@ -23,7 +23,7 @@ export default async function ListNewFilms() {
     <div className=" list-cartoon-container">
       <div className="flex items-center justify-between gap-2 rounded-lg bg-blueSecondary bg-opacity-30 p-2">
         <Link
-          className="big-title inline-block w-fit border-b-2 border-b-[#5142fc7f] text-base font-semibold text-white sm:text-xl"
+          className="big-title inline-block w-fit border-b-2 border-b-[#4660e67f] text-base font-semibold text-white sm:text-xl"
           prefetch={false}
           href="/the-loai/tinh-cam-dDiip"
           target="_blank"
@@ -40,7 +40,7 @@ export default async function ListNewFilms() {
           <FaCaretRight size={14} />
         </Link>
       </div>
-      <div className="list-film-container mb-3 lg:mb-10 mt-6 flex w-full flex-wrap items-start gap-2">
+      <div className="list-film-container mb-3 mt-6 flex w-full flex-wrap items-start gap-2 lg:mb-10">
         <ListFilmItemComponent listFilm={listFilm} />
       </div>
     </div>

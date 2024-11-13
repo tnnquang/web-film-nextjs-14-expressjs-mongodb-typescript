@@ -1,5 +1,6 @@
-import { fetchAds } from "@/common/utils";
+import { fetchAds, retry } from "@/common/utils";
 import {
+  Row1AdsComponent,
   Row2AdsComponent,
   Row3AdsComponent,
 } from "@/components/AdsComponents/AdsComponent";
@@ -32,21 +33,24 @@ async function getFile() {
 export default async function Home({ searchParams }: Props) {
   const tab = searchParams.tab;
   const [ads, configItemDisplayedInHomePage] = await Promise.all([
-    fetchAds(),
-    getFile(),
+    retry(fetchAds, "fetchAds()"),
+    retry(getFile, "getFile()"),
   ]);
 
+  revalidatePath("/");
 
   return (
     <section className="main-page home-page mx-auto w-full">
       <TabCategoryFilmComponent tab={tab as string} />
-      <Row2AdsComponent dataAds={ads?.row2?.ads_content} />
+      <Row1AdsComponent dataAds={ads?.row1?.ads_content} />
+
       {configItemDisplayedInHomePage
         .filter((e: any) => e.page === "Home")[0]
         ?.listItemWillBeDisplayed.map(async (item: any, index: number) =>
           index === 1 ? (
             <React.Fragment key={index}>
-              <Row3AdsComponent dataAds={ads?.row3?.ads_content} />
+              <Row2AdsComponent dataAds={ads?.row2?.ads_content} />
+
               <ListShowListItemWithAnyCategoryComponent
                 title={item?.title}
                 categorySlug={item?.categoryPath}
@@ -54,12 +58,15 @@ export default async function Home({ searchParams }: Props) {
               />
             </React.Fragment>
           ) : (
-            <ListShowListItemWithAnyCategoryComponent
-              key={index}
-              title={item?.title}
-              categorySlug={item?.categoryPath}
-              categoryName={item?.categoryName}
-            />
+            <>
+              <Row3AdsComponent dataAds={ads?.row3?.ads_content} />
+              <ListShowListItemWithAnyCategoryComponent
+                key={index}
+                title={item?.title}
+                categorySlug={item?.categoryPath}
+                categoryName={item?.categoryName}
+              />
+            </>
           )
         )}
     </section>

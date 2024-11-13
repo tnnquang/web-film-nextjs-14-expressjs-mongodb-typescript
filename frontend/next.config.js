@@ -11,6 +11,14 @@ const nextConfig = {
     unoptimized: true,
     // remotePatterns: imageRemotePatterns,
   },
+  rewrites: async () => {
+    return [
+      {
+        source: "/home",
+        destination: "https://bongngo.net",
+      },
+    ];
+  },
   logging: {
     fetches: {
       fullUrl: true,

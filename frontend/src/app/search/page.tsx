@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import SearchComponent from "@/components/SearchComponent";
-import { getListCategory, getListCountry } from "@/common/utils";
+import { getListCategory, getListCountry, retry } from "@/common/utils";
 import { SITE_CONFIG } from "@/configs/metadata-config";
 
 type Props = {
@@ -24,8 +24,8 @@ export function generateMetadata({ searchParams }: Props): Metadata {
 
 export default async function SearchPage() {
   const [categories, countries] = await Promise.all([
-    getListCategory(),
-    getListCountry(),
+    retry(getListCategory, "getListCategory()"),
+    retry(getListCountry, "getListCountry()"),
   ]);
   return <SearchComponent listDataFilters={{ categories, countries }} />;
 }

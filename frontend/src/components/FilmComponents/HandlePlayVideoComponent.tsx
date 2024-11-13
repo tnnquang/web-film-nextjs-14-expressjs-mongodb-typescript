@@ -187,7 +187,7 @@ export default function HandlePlayVideoComponent({
   }, []);
 
   useEffect(() => {
-    if (isEmpty(adsInPlayer)) {
+    if (isEmpty(adsInPlayer?.ads_content)) {
       setSkipAds(true);
     }
   }, [adsInPlayer]);
@@ -201,7 +201,7 @@ export default function HandlePlayVideoComponent({
 
   const VideoShow = () => {
     // Kiểm tra điều kiện hiển thị video ads
-    if (!skipAds && !isEmpty(adsInPlayer)) {
+    if (!skipAds && !isEmpty(adsInPlayer?.ads_content)) {
       return (
         <div className="h-[320px] max-h-[500px] w-full sm:h-[45vw]">
           <AdsPlayerComponent
@@ -325,7 +325,7 @@ export default function HandlePlayVideoComponent({
                   : `Tập ${currentEp?.title} (Lỗi)`
                 : " Tập Trailer"} */}
             {pathName.split("/").pop() === "tap-trailer"
-              ? " Tập Trailer"
+              ? "Trailer"
               : currentEp?.title?.trim().toLowerCase().startsWith("tập")
                 ? currentEp?.title
                 : ` Tập ${currentEp?.title}`}
@@ -348,29 +348,29 @@ export default function HandlePlayVideoComponent({
                 Giới thiệu phim
               </span>
               <div className="share flex items-center gap-2">
-                <span className="share-text">Chia sẻ: </span>
+                <span className="share-text">Sharing: </span>
                 <div className="group-btn-share flex items-center gap-2">
                   <FacebookShareButton
                     url={document.URL}
-                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#5142FC] transition-all duration-300 hover:!bg-white hover:!text-[#5142FC]"
+                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#4660e6] transition-all duration-300 hover:!bg-white hover:!text-[#4660e6]"
                   >
                     <FaFacebook size={20} />
                   </FacebookShareButton>
                   <TwitterShareButton
                     url={document.URL}
-                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#5142FC] transition-all duration-300 hover:!bg-white hover:!text-[#5142FC]"
+                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#4660e6] transition-all duration-300 hover:!bg-white hover:!text-[#4660e6]"
                   >
                     <FaTwitter size={20} />
                   </TwitterShareButton>
                   <VKShareButton
                     url={document.URL}
-                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#5142FC] transition-all duration-300 hover:!bg-white hover:!text-[#5142FC]"
+                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#4660e6] transition-all duration-300 hover:!bg-white hover:!text-[#4660e6]"
                   >
                     <FaVk size={20} />
                   </VKShareButton>
                   <OKShareButton
                     url={document.URL}
-                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#5142FC] transition-all duration-300 hover:!bg-white hover:!text-[#5142FC]"
+                    className="flex h-[30px] w-[30px] items-center justify-center rounded-full !bg-[#4660e6] transition-all duration-300 hover:!bg-white hover:!text-[#4660e6]"
                   >
                     <FaOdnoklassniki size={20} />
                   </OKShareButton>

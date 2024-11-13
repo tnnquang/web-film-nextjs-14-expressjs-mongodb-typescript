@@ -154,11 +154,11 @@ export default function HeaderComponent({
               <input
                 // name="query"
                 // autoFocus
-                className="fill-keyword w-full rounded-md border border-[#5142FC] p-2 pr-[60px] text-sm text-[#5142FC]"
+                className="fill-keyword w-full rounded-md border border-[#4660e6] p-2 pr-[60px] text-sm text-[#4660e6]"
                 placeholder="Tìm kiếm phim..."
               />
               <Button
-                className="btn-submit !absolute right-0 z-10 !h-full !rounded-none !rounded-br-md !rounded-tr-md !border-[#5142FC] !bg-[#5142FC] p-2 text-sm !text-white"
+                className="btn-submit !absolute right-0 z-10 !h-full !rounded-none !rounded-br-md !rounded-tr-md !border-[#4660e6] !bg-[#4660e6] p-2 text-sm !text-white"
                 htmlType="submit"
               >
                 Tìm kiếm
@@ -186,7 +186,7 @@ export default function HeaderComponent({
                     <span
                       // href={e.slug}
                       className={`title-item title-main-container flex !h-10 w-full items-center gap-1 py-2 hover:cursor-pointer md:py-4 ${
-                        changeLink(e) ? "text-[#5142FC]" : ""
+                        changeLink(e) ? "text-[#4660e6]" : ""
                       }`}
                       onClick={() => {
                         const submenu = getElement(`.submenu-${i}`);
@@ -238,7 +238,7 @@ export default function HeaderComponent({
               return (
                 <li
                   className={`menu-item relative text-base font-bold uppercase transition-all duration-300 hover:text-[#4B50E6] ${
-                    changeLink(e) ? "active text-[#5142FC]" : ""
+                    changeLink(e) ? "active text-[#4660e6]" : ""
                   }`}
                   key={`b${e.name}`}
                   onClick={() => changeLink(e)}
@@ -257,7 +257,7 @@ export default function HeaderComponent({
         </nav>
 
         <button
-          className="btn-show-search p-2 hover:text-[#5142FC] xl:hidden"
+          className="btn-show-search p-2 hover:text-[#4660e6] xl:hidden"
           onClick={() => {
             if (isBrowser) {
               const btn = getElement(".btn-show-search");
@@ -280,11 +280,11 @@ export default function HeaderComponent({
               <input
                 name="query"
                 // autoFocus
-                className="fill-keyword w-full rounded-md border border-[#5142FC] p-2 pr-[95px] text-sm text-[#5142FC] sm:w-[300px]"
+                className="fill-keyword w-full rounded-md border border-[#4660e6] p-2 pr-[95px] text-sm text-[#4660e6] sm:w-[300px]"
                 placeholder="Bạn muốn tìm phim gì ?..."
               />
               <Button
-                className="btn-submit !absolute right-0 z-10 !h-full !rounded-none !rounded-br-md !rounded-tr-md !border-[#5142FC] !bg-[#5142FC] p-2 text-sm !text-white"
+                className="btn-submit !absolute right-0 z-10 !h-full !rounded-none !rounded-br-md !rounded-tr-md !border-[#4660e6] !bg-[#4660e6] p-2 text-sm !text-white"
                 htmlType="submit"
               >
                 Tìm kiếm

@@ -38,8 +38,8 @@ export default function ListHotFilmComponent({
             sizes="100vw"
             loading="lazy"
             alt={e?.title as string}
-            placeholder="blur"
-            blurDataURL={"/blur_img.webp"}
+            // placeholder="blur"
+            // blurDataURL={"/blur_img.webp"}
           />
         </div>
         <div className=" relative z-10 w-3/5 pr-4">
@@ -108,7 +108,7 @@ export default function ListHotFilmComponent({
         },
         1500: {
           items: 5.5,
-        },   
+        },
       }}
       ssrSilentMode
     />

@@ -74,13 +74,15 @@ export default function CommentComponent({
         {!isEmpty(dataComments) &&
           dataComments?.map((e) => (
             <div className="parent-comment" key={e._id}>
-              <article className="username p-2 rounded-xl bg-gray-200 bg-opacity-20 mt-2 flex w-fit items-center gap-1.5 pb-1 text-base font-semibold">
-                <p className=" rounded-full bg-[#5142FC] p-2 text-white">
+              <article className="username mt-2 flex w-fit items-center gap-1.5 rounded-xl bg-gray-200 bg-opacity-20 p-2 pb-1 text-base font-semibold">
+                <p className=" rounded-full bg-[#4660e6] p-2 text-white">
                   <FaRegUser size={14} />
                 </p>{" "}
                 <div className="">
-                  <p className="font-bold text-sm">{e.name}</p>
-                  <p className="content my-1 text-sm font-normal">{e.content}</p>
+                  <p className="text-sm font-bold">{e.name}</p>
+                  <p className="content my-1 text-sm font-normal">
+                    {e.content}
+                  </p>
                 </div>
               </article>
               {!isEmpty(e.replies) && (

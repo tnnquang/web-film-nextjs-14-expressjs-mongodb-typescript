@@ -103,7 +103,7 @@ function FiltersServerComponent({
                   width: "100%",
                 }}
                 className="custom-select-selector"
-                popupClassName="!bg-[#2b1867] custom-popup-option"
+                popupClassName="!bg-[#183967] custom-popup-option"
                 defaultValue={
                   path === "the-loai"
                     ? initValue || undefined
@@ -125,7 +125,7 @@ function FiltersServerComponent({
                   width: "100%",
                 }}
                 className="custom-select-selector"
-                popupClassName="!bg-[#2b1867] custom-popup-option"
+                popupClassName="!bg-[#183967] custom-popup-option"
                 defaultValue={
                   path === "quoc-gia"
                     ? initValue || undefined
@@ -140,7 +140,7 @@ function FiltersServerComponent({
           <Col xs={24} md={8} xl={6}>
             <Form.Item className="w-full">
               <Button
-                className="w-full !bg-blueSecondary !text-white hover:!border-[#5142FC]"
+                className="w-full !bg-blueSecondary !text-white hover:!border-[#4660e6]"
                 type="primary"
                 htmlType="submit"
                 loading={fetching}

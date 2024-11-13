@@ -1,6 +1,6 @@
 import { FaCirclePlay } from "react-icons/fa6";
 
-import { fetchAds, getDataFromSlug } from "@/common/utils";
+import { fetchAds, getDataFromSlug, retry } from "@/common/utils";
 import HandlePlayVideoComponent from "@/components/FilmComponents/HandlePlayVideoComponent";
 import { revalidatePath } from "next/cache";
 
@@ -16,7 +16,10 @@ export default async function WatchFilm({ params }: NextPageProps) {
     return data;
   };
 
-  const [item, ads] = await Promise.all([fetchData(), fetchAds()]);
+  const [item, ads] = await Promise.all([
+    retry(fetchData, "fetchData()"),
+    retry(fetchAds, "fetchAds()"),
+  ]);
 
   if (!item || slug?.length > 2)
     return (
