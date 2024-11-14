@@ -677,14 +677,27 @@ export function generateMetadataForXemPhim(
 
 export async function fetchAds() {
   // return null;
-
-  const ress = await fetch(`${BASE_URL_FRONTEND}/api/ads`, {
-    cache: "no-cache",
-  });
-  if (ress.ok) {
-    return await ress.json();
+  try {
+    let ress = null;
+    if (isBrowser) {
+      ress = await fetch(`${BASE_URL_FRONTEND}/api/ads`, {
+        cache: "no-cache",
+      });
+      console.log("Fetch ads from client side");
+    } else {
+      ress = await fetch(`http://localhost:6868/api/ads`, {
+        cache: "no-cache",
+      });
+      console.log("Fetch ads from server side");
+    }
+    if (ress?.ok) {
+      return await ress.json();
+    }
+    return null;
+  } catch (error: any) {
+    console.log("Error fetch ads: ", error?.message);
+    return null;
   }
-  return null;
 }
 
 export async function retry(

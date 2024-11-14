@@ -5,7 +5,7 @@
   },
   "frontend": {
     "production": "https://bongngo.net",
-    "devlopment": "http://localhost:3200"
+    "devlopment": "http://localhost:6868"
   },
   "image": {
     "production": "https://api.bongngo.net",
@@ -15,5 +15,5 @@
     "production": "https://api.bongngo.net/ads/get-all",
     "devlopment": "http://localhost:35000/ads/get-all"
   },
-  "baseUrlNoProtocol": "cayphim.live"
+  "baseUrlNoProtocol": "bongngo.net"
 }

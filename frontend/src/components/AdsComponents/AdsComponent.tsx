@@ -94,7 +94,7 @@ export function Row1AdsComponent({
   dataAds: any[] | null | undefined;
 }) {
   return dataAds && dataAds.length > 0 ? (
-    <section className="row1-bn any-data-wrapper relative z-[1] mx-auto my-3 w-full">
+    <section className="row1-bn  relative z-[1] mx-auto my-3 w-full">
       {dataAds.map((item: any, index) =>
         item.mode === "dual" ? (
           <div
@@ -296,7 +296,7 @@ export function FooterAdsComponent({
 }) {
   return dataAds && dataAds.length > 0 ? (
     <section className="fixed bottom-0 left-1/2 z-50 mx-auto w-full max-w-[1800px] -translate-x-1/2 2lg:px-4">
-      <div className="any-data-wrapper mx-auto w-full pl-3 pr-[10px] 2lg:px-0 2lg:pr-0">
+      <div className=" mx-auto w-full pl-3 pr-[10px] 2lg:px-0 2lg:pr-0">
         {dataAds.map((item: any, index) =>
           item.mode === "dual" ? (
             <div

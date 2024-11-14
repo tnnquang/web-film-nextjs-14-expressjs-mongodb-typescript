@@ -42,15 +42,23 @@ export default async function Home({ searchParams }: Props) {
   return (
     <section className="main-page home-page mx-auto w-full">
       <TabCategoryFilmComponent tab={tab as string} />
-      <Row1AdsComponent dataAds={ads?.row1?.ads_content} />
+      {/* <Row1AdsComponent dataAds={ads?.row1?.ads_content} /> */}
 
       {configItemDisplayedInHomePage
         .filter((e: any) => e.page === "Home")[0]
         ?.listItemWillBeDisplayed.map(async (item: any, index: number) =>
-          index === 1 ? (
+          index === 0 ? (
+            <React.Fragment key={index}>
+              <Row1AdsComponent dataAds={ads?.row1?.ads_content} />
+              <ListShowListItemWithAnyCategoryComponent
+                title={item?.title}
+                categorySlug={item?.categoryPath}
+                categoryName={item?.categoryName}
+              />
+            </React.Fragment>
+          ) : index === 1 ? (
             <React.Fragment key={index}>
               <Row2AdsComponent dataAds={ads?.row2?.ads_content} />
-
               <ListShowListItemWithAnyCategoryComponent
                 title={item?.title}
                 categorySlug={item?.categoryPath}
